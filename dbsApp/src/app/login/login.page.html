@@ -1,0 +1,23 @@
+<ion-content class="loginPage">
+
+	<div class="loginImage">
+		<img src="https://www.imoney.sg/uploads/sg/logos/logo-dbs-png-dbs-bank-logo-logotype-4519.png">
+	</div>
+
+	<div class="loginContainer">
+		<ion-item>
+		  <ion-label position="stacked">Username</ion-label>
+		  <ion-input [(ngModel)]="userData.username" ></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="stacked">Password</ion-label>
+		  <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
+		</ion-item>		
+	</div>
+
+	<div class="btnContainer">
+		<ion-button expand="block" fill="outline" (click)="checkIfEmpty()">Login</ion-button>
+		<ion-button color="danger" fill="clear" class="marginLeft">Sign up</ion-button>
+	</div>
+
+</ion-content>
