@@ -18,8 +18,8 @@ export class AppComponent {
     },
     {
       title: 'User Information',
-      url: '/list',
-      icon: 'list'
+      url: '/userinfo',
+      icon: 'contact'
     },
     {
       title: 'Logout',

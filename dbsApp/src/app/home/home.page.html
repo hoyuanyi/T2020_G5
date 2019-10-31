@@ -14,16 +14,39 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content forceOverscroll=true>
+
+  <div class="balance">
+    Balance: $8888
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      Doughnut Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #doughnutCanvas></canvas>
+    </ion-card-content>
+  </ion-card>  
 
   <ion-card class="cardCss">
-    <ion-card-header>
-      <ion-card-title>Recent Transcations</ion-card-title>
+    <ion-card-header class="header">
+      <ion-card-title>Recent Transcations</ion-card-title>  
     </ion-card-header>
-
     <ion-card-content>
-
-    </ion-card-content>
+      <ion-card-subtitle>DEBIT</ion-card-subtitle>
+      <ion-item class="transItem">
+        <ion-label>766573142 THE SPRING OYSTER</ion-label>
+        <ion-note slot="end">$27.24</ion-note>
+      </ion-item>
+    </ion-card-content> 
+    <ion-card-content>
+      <ion-card-subtitle>DEBIT</ion-card-subtitle>
+      <ion-item class="transItem">
+        <ion-label>766573142 THE SPRING OYSTER</ion-label>
+        <ion-note slot="end">$27.24</ion-note>
+      </ion-item>
+    </ion-card-content>     
   </ion-card>
 
 </ion-content>
