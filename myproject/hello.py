@@ -28,6 +28,17 @@ def CustomerDetails(customerId):
       headers = headers)
     return r.json()
 
+@app.route('/getTransactionDetails/<details>')
+def trans(details):
+    headers = {
+    'identity': 'Group24',
+    'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
+    }
+    r = requests.get(
+        'http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/transactions/' + details + '?from=01-01-2018&to=02-01-2019',
+        headers = headers)
+    return json.dumps(r.json())
+
 @app.route('/getAccountlist/<customerId>')
 def Accountlist(customerId):
     headers = {
@@ -74,3 +85,33 @@ def OutstandingBalance(accountId):
       headers = headers)
     print(r.json())
     return r.json()
+
+@app.route('/getMarketingMessage/<marketingmsg>')
+def market(marketingmsg):
+    headers = {
+        'identity': 'Group24',
+        'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
+    }
+    r = requests.get('http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/marketing' + marketingmsg,
+                     headers = headers)
+    return json.dumps(r.json())
+
+def market(marketingdetails):
+    headers = {
+        'identity': 'Group24',
+        'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
+    }
+    r = requests.get('http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/marketing/id' + marketingdetails,
+                     headers = headers)
+    return json.dumps(r.json())
+
+
+@app.route('/getPersonalMessage/<personalmsg>')
+def personal(personalmsg):
+    headers = {
+        'identity': 'Group24',
+        'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
+    }
+    r = requests.get('http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/message/' + personalmsg,
+                     headers = headers)
+    return json.dumps(r.json())
