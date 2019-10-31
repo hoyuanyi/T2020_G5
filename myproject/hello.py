@@ -97,7 +97,7 @@ def market(marketingmsg):
     return json.dumps(r.json())
 
 @app.route('/marketingDetails/<marketingdetails>')
-def market(marketingdetails):
+def marketingDetail(marketingdetails):
     headers = {
         'identity': 'Group24',
         'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
