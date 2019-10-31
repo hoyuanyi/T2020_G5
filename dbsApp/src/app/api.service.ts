@@ -27,7 +27,7 @@ export class ApiService {
     			  'Access-Control-Allow-Methods':'GET',
     			  'Access-Control-Allow-Headers':'application/json'}
   	}
-  	return this.http.get('http://192.168.43.55:5000/getCustomerDetails/' + customerID + '/details', httpOptions)
+  	return this.http.get('http://192.168.43.55:5000/getCustomerDetails/' + customerID, httpOptions)
   }
 
   getDepositBalance(accountID):Observable<any> {
