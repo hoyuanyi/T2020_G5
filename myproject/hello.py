@@ -53,7 +53,7 @@ def trans(accountId):
     print(FNB_amount)
     print(Transfer_amount)
 
-    test2 = {'TRANSPORT':Transport_amount, 'F&B': FNB_amount, 'TRANSFER': Transfer_amount }
+    test2 = {'TRANSPORT':Transport_amount, 'FNB': FNB_amount, 'TRANSFER': Transfer_amount }
     print(test2)
 
     return test2
