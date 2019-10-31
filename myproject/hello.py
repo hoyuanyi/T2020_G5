@@ -35,7 +35,7 @@ def trans(accountId):
     'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
     }
     r = requests.get(
-        'http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/transactions/' + accountId + '?from=01-01-2018&to=02-01-2019',
+        'http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/transactions/' + accountId + '?from=01-01-2019&to=02-01-2019',
         headers = headers)
     contents = r.json()
     Transport_amount = 0
