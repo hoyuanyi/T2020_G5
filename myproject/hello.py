@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask, Response, jsonify
 import requests
 import json
 
@@ -28,16 +28,36 @@ def CustomerDetails(customerId):
       headers = headers)
     return r.json()
 
-@app.route('/getTransactionDetails/<details>')
-def trans(details):
+@app.route('/getTransactionDetails/<accountId>')
+def trans(accountId):
     headers = {
     'identity': 'Group24',
     'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
     }
     r = requests.get(
-        'http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/transactions/' + details + '?from=01-01-2018&to=02-01-2019',
+        'http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/transactions/' + accountId + '?from=01-01-2018&to=02-01-2019',
         headers = headers)
-    return json.dumps(r.json())
+    contents = r.json()
+    Transport_amount = 0
+    FNB_amount = 0
+    Transfer_amount = 0
+    for i in range(len(contents)):
+        if contents[i]['tag'] == 'TRANSPORT':
+            Transport_amount = Transport_amount + float(contents[i]['amount'])
+        if contents[i]['tag'] == 'F&B':
+            FNB_amount = FNB_amount + float(contents[i]['amount'])
+        if contents[i]['tag'] == 'TRANSFER':
+            Transfer_amount = Transfer_amount + float(contents[i]['amount'])
+
+    print(Transport_amount)
+    print(FNB_amount)
+    print(Transfer_amount)
+
+    test2 = {'TRANSPORT':Transport_amount, 'F&B': FNB_amount, 'TRANSFER': Transfer_amount }
+    print(test2)
+
+    return test2
+
 
 @app.route('/getAccountlist/<customerId>')
 def Accountlist(customerId):
@@ -48,7 +68,7 @@ def Accountlist(customerId):
     r = requests.get(
       'http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/accounts/deposit/'+ customerId,
       headers = headers)
-    return json.dumps(r.json())
+    return r.json()[0]
 
 @app.route('/getBalance/<accountId>')
 def DepositBalance(accountId):
