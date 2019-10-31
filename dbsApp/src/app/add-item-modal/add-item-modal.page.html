@@ -1,0 +1,47 @@
+<ion-header>
+	<ion-toolbar>
+    	<ion-buttons slot="start">
+      		<ion-button (click)="closeAddItemModal()">
+        		<ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      		</ion-button>
+    	</ion-buttons>
+
+    	<ion-title class="mainLayer">
+      		Add Item
+    	</ion-title>
+ 	 </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<div class="claimDetailsContainer">
+	
+		<ion-item lines="none" class="inputBtn">
+	  		<ion-label>Item Description</ion-label>
+	  		<ion-input placeholder="Type Here" class="inputBtn" input="text" autofocus="true" clearInput="true" autocorrect="true" [(ngModel)]="addItemDetails.Description"></ion-input>
+		</ion-item>
+
+		<ion-item lines="none" class="inputBtn">
+	  		<ion-label>Item Cost</ion-label>
+	  		<ion-input placeholder="Type Here" class="inputBtn" input="text" autofocus="true" clearInput="true" autocorrect="true" (change)="calculateDiff(addItemDetails.Cost, addItemDetails.budgetedAmount)" [(ngModel)]="addItemDetails.Cost"></ion-input>
+		</ion-item>	
+
+
+	    <ion-item lines="none" class="checkedBtn">
+	    	<ion-label>Is this a Budgeted Expense?</ion-label>
+			<ion-checkbox slot="end" [(ngModel)]="addItemDetails.budgetedExpense"></ion-checkbox>
+	    </ion-item>		
+
+		<ion-item lines="none" class="inputBtn">
+	  		<ion-label>Budgeted Amount</ion-label>
+	  		<ion-input placeholder="Type Here" class="inputBtn" input="text" autofocus="true" clearInput="true" autocorrect="true" (change)="calculateDiff(addItemDetails.Cost, addItemDetails.budgetedAmount)" [(ngModel)]="addItemDetails.budgetedAmount"></ion-input>
+		</ion-item>
+
+		<ion-item lines="none" class="textOnly" *ngIf="addItemDetails.budgetedExpense">
+	  		<ion-label>Calculated Cost Difference</ion-label>
+	  		<ion-label class="rightLabel">{{budgetDiff}} SGD</ion-label>
+		</ion-item>		
+
+	</div>
+
+</ion-content>

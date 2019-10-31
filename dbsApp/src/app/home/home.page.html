@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>    
+    <ion-title class="mainLayer">
+      Claims
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="claimContainer">
+    
+    <button class="claimBtnBelow" routerLink="/add-claim-page/" routerDirection="forward">
+      Claims of $1000 & below
+    </button>
+    
+    <button class="claimBtnAbove">
+      Claims Above $1000
+    </button>
+
+    <button class="addExistClaimBtn">
+      Adding to existing claim
+    </button>
+
+  </div>
+</ion-content>

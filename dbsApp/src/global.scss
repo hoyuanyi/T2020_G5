@@ -1,0 +1,178 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+ion-header {
+	position: unset !important;
+}
+
+ion-toolbar {
+	color: #4da6ff !important;
+}
+
+ion-title.mainLayer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 14px;
+	color: #4da6ff;
+}
+
+div.claimContainer {
+	padding: 10%;
+
+	button.claimBtnBelow {
+		width: 100%;
+		height: 9.5em;
+		background-color: #ffc966;
+		color: white;
+		text-transform: uppercase;
+		font-size: 1em;
+		font-weight: 700;
+		border-radius: 5px;
+		margin-bottom: 5%;
+	}
+
+	button.claimBtnAbove {
+		width: 100%;
+		height: 9.5em;
+		background-color: #99ccff;
+		color: white;
+		text-transform: uppercase;
+		font-size: 1em;
+		font-weight: 700;
+		border-radius: 5px;
+		margin-bottom: 5%;
+	}	
+
+
+	button.addExistClaimBtn {
+		width: 60%;
+		border: 2px solid #4da6ff;
+		border-radius: 5px;
+		margin-left: 20%;
+		height: 4em;
+		color: #4da6ff;
+		font-weight: 700;
+	}
+
+}
+
+div.claimDetailsContainer {
+	padding: 10%;
+
+	ion-item.checkedBtn {
+		margin-bottom: 5%;
+		height: 3em;
+		color: #4da6ff;
+
+		ion-label {
+			font-size: 14px;
+			font-weight: 500;
+		}
+
+		ion-checkbox:hover {
+			outline: none;
+		}
+
+	}
+
+	ion-item.inputBtn {
+		border: 1px solid #4da6ff;
+		margin-bottom: 5%;
+		height: 3em;
+
+		ion-label {
+			color: #4da6ff;
+			font-weight: 500;
+			font-size: 14px;
+		}
+
+		ion-datetime {
+			color: #4da6ff;
+			font-weight: 300;
+			margin-right: 1.7em;
+			font-size: 14px;
+		}
+
+	}
+
+	ion-input.inputBtn {
+		font-size: 14px;
+		text-align: right;
+		color: #4da6ff;
+		font-weight: 300;
+		--placeholder-opacity: 100%;
+		--placeholder-font-weight: 300;
+	}
+
+	button.nextBtn {
+		width: 100%;
+		border: 2px solid #4da6ff;
+		border-radius: 5px;
+		height: 4em;
+		color: white;
+		font-weight: 700;
+		background: #4da6ff;
+		text-transform: uppercase;
+	}
+
+	ion-item.textOnly {
+		color: #4da6ff;
+		font-weight: 500;
+		opacity: 100% !important;
+
+		ion-label {
+			font-size: 14px;
+		}
+
+		ion-label.rightLabel {
+			font-size: 14px;
+			text-align: right;
+		}
+
+		ion-datetime[disabled] {
+			opacity: 1 !important;
+		}
+
+	}
+}
+
+button:focus {
+	outline: none;
+}
+
+button:active {
+	background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+	outline: none;
+}
