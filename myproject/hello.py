@@ -86,13 +86,13 @@ def OutstandingBalance(accountId):
     print(r.json())
     return r.json()
 
-@app.route('/getMarketingMessage/<marketingmsg>')
-def market(marketingmsg):
+@app.route('/getMarketingMessage')
+def market():
     headers = {
         'identity': 'Group24',
         'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
     }
-    r = requests.get('http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/marketing' + marketingmsg,
+    r = requests.get('http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/marketing',
                      headers = headers)
     return json.dumps(r.json())
 
@@ -102,7 +102,7 @@ def marketingDetail(marketingdetails):
         'identity': 'Group24',
         'token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'
     }
-    r = requests.get('http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/marketing/id' + marketingdetails,
+    r = requests.get('http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/marketing/' + marketingdetails,
                      headers = headers)
     return json.dumps(r.json())
 
