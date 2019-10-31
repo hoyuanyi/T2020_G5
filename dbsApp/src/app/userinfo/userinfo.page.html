@@ -11,7 +11,7 @@
 
 <ion-content>
 
-<ion-card>
+<ion-card class="profile">
   <ion-card-header>
 
 	<ion-avatar>
@@ -23,6 +23,18 @@
   <ion-card-content>
     Keep close to Nature's heart... and break clear away, once in awhile,
     and climb a mountain or spend a week in the woods. Wash your spirit clean.
+  </ion-card-content>
+</ion-card>
+
+<ion-card class="account">
+  <ion-card-header>
+    <ion-card-title>{{userAccount.displayName}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+  	<ion-card-subtitle>Type: {{userAccount.type}}</ion-card-subtitle>
+  	<ion-card-subtitle>Balance: {{userBalance.currency}}{{userBalance.availableBalance}}</ion-card-subtitle>
+  	<ion-card-subtitle>Account Number: {{userAccount.accountNumber}}</ion-card-subtitle>
   </ion-card-content>
 </ion-card>
 
