@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,12 @@ export class LoginPage implements OnInit {
 
 	userData: any = {"username": "", "password": ""}
 
-	constructor(private router: Router, private alertCtrl: AlertController) {
+	constructor(private router: Router, private alertCtrl: AlertController, private apiService: ApiService) {
+		this.getAPI();	
 	}
 
-	ngOnInit() { }
+	ngOnInit() { 
+	}
 
 	checkIfEmpty() {
 		if(this.userData.username == "" || this.userData.password == "") {
@@ -39,6 +42,12 @@ export class LoginPage implements OnInit {
     });
 
     await alert.present();
-  }	
+  }
+
+  getAPI() {
+  	this.apiService.getCustomerID().subscribe(data => {
+  		this.presentAlert(JSON.stringify(data));
+  	})
+  }
 
 }
