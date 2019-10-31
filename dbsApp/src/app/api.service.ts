@@ -10,18 +10,65 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getCustomerID():Observable<any> {
+  getCustomerID(username: String):Observable<any> {
   	const httpOptions = {
-  		headers: {'identity': 'Group24','token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'}
+  		headers: {'Access-Control-Allow-Credentials' : "true",
+    			  'Access-Control-Allow-Origin':'*',
+    			  'Access-Control-Allow-Methods':'GET',
+    			  'Access-Control-Allow-Headers':'application/json'}
   	}
-  	return this.http.get("http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/marytan", httpOptions)
+  	return this.http.get("http://192.168.43.55:5000/getCustomerId/" + username, httpOptions)
   }
 
-  getCustomerDetails():Observable<any> {
+  getCustomerDetails(customerID: String):Observable<any> {
   	const httpOptions = {
-  		headers: {'identity': 'Group24','token': 'b8f08d3a-47b2-4238-86bf-a8ed776352c2'}
+  		headers: {'Access-Control-Allow-Credentials' : "true",
+    			  'Access-Control-Allow-Origin':'*',
+    			  'Access-Control-Allow-Methods':'GET',
+    			  'Access-Control-Allow-Headers':'application/json'}
   	}
-  	return this.http.get("http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/2/details", httpOptions)
+  	return this.http.get('http://192.168.43.55:5000/getCustomerDetails/' + customerID + '/details', httpOptions)
+  }
+
+  getDepositBalance(accountID):Observable<any> {
+  	const httpOptions = {
+  		headers: {'Access-Control-Allow-Credentials' : "true",
+    			  'Access-Control-Allow-Origin':'*',
+    			  'Access-Control-Allow-Methods':'GET',
+    			  'Access-Control-Allow-Headers':'application/json'}
+  	}
+  	return this.http.get('http://192.168.43.55:5000/getBalance/' + accountID, httpOptions)  	
+  }
+
+  getOutstandingBalance(accountID):Observable<any> {
+   	const httpOptions = {
+  		headers: {'Access-Control-Allow-Credentials' : "true",
+    			  'Access-Control-Allow-Origin':'*',
+    			  'Access-Control-Allow-Methods':'GET',
+    			  'Access-Control-Allow-Headers':'application/json'}
+  	}
+  	return this.http.get('http://192.168.43.55:5000/getOutstandingBalance/' + accountID, httpOptions) 	
+  }
+
+  getAccountList(customerID: int):Observable<any> {
+  	const httpOptions = {
+  		headers: {'Access-Control-Allow-Credentials' : "true",
+    			  'Access-Control-Allow-Origin':'*',
+    			  'Access-Control-Allow-Methods':'GET',
+    			  'Access-Control-Allow-Headers':'application/json'}
+  	}
+  	return this.http.get('http://192.168.43.55:5000/getAccountlist/' + customerID, httpOptions)
+  }
+
+  getTransactions(accountID: String):Observable<any> {
+  	const httpOptions = {
+  		headers: {'Access-Control-Allow-Credentials' : "true",
+    			  'Access-Control-Allow-Origin':'*',
+    			  'Access-Control-Allow-Methods':'GET',
+    			  'Access-Control-Allow-Headers':'application/json',
+    			  'Content-Type':'application/json'}
+  	}
+  	return this.http.get('http://192.168.43.55:5000/getTransactionDetails/' + accountID, httpOptions)  	
   }
 
 }

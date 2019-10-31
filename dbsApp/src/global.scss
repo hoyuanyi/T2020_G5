@@ -218,7 +218,30 @@ button:active {
 
 
 .cardCss {
-	
+	ion-card-header.header {
+		padding: 5%;
+		padding-bottom: 0%;
+		ion-card-title {
+			font-size: 14px;
+		}
+	}
+
+	ion-card-subtitle {
+		font-size: 12px;
+		margin-left: 1%;
+	}
+
+	ion-item.transItem {
+		font-size: 12px;
+	}
+
+}
+
+.balance {
+	padding: 5%;
+	font-size: 18px;
+	color: #4da6ff;
+	text-align: center;
 }
 
 

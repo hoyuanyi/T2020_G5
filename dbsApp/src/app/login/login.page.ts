@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ApiService } from '../api.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,7 @@ export class LoginPage implements OnInit {
 
 	userData: any = {"username": "", "password": ""}
 
-	constructor(private router: Router, private alertCtrl: AlertController, private apiService: ApiService) {
-		this.getAPI();	
+	constructor(private router: Router, private alertCtrl: AlertController, private apiService: ApiService, private storage: Storage) {
 	}
 
 	ngOnInit() { 
@@ -23,13 +23,13 @@ export class LoginPage implements OnInit {
 	checkIfEmpty() {
 		if(this.userData.username == "" || this.userData.password == "") {
 			if(this.userData.username == "") {
-				this.presentAlert("Username field.")
+				this.presentAlert("Please fill in Username field.")
 			} else {
-				this.presentAlert("Password field.")
+				this.presentAlert("Please fill in Password field.")
 			}
 		
 		} else {
-			this.router.navigate(['/home'])
+			this.getAPI()		
 		}
 	}
 
@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: 'Login Failed',
       subHeader: 'Missing Fields',
-      message: 'Please fill in ' + alertMsg,
+      message: alertMsg,
       buttons: ['OK'],
     });
 
@@ -45,8 +45,17 @@ export class LoginPage implements OnInit {
   }
 
   getAPI() {
-  	this.apiService.getCustomerID().subscribe(data => {
-  		this.presentAlert(JSON.stringify(data));
+  	this.apiService.getCustomerID(this.userData.username).subscribe(data => {
+  		let newData = JSON.stringify(data)
+  		if(data.userName == null) {
+  			this.presentAlert("Invalid Login");
+  			this.userData.username = "";
+  			this.userData.password = "";
+  		} else {
+  			this.storage.set("userInfo", data)
+  			this.router.navigate(['/home'])	
+  		}
+
   	})
   }
 

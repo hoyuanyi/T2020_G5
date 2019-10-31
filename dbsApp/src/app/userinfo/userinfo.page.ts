@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-userinfo',
@@ -7,9 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserinfoPage implements OnInit {
 
-  constructor() { }
+  constructor(private apiService:ApiService, private storage:Storage) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

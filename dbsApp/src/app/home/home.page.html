@@ -17,7 +17,7 @@
 <ion-content forceOverscroll=true>
 
   <div class="balance">
-    Balance: $8888
+    Balance: {{userBalance.currency}}{{userBalance.availableBalance}}
   </div>
 
   <ion-card>
@@ -39,14 +39,7 @@
         <ion-label>766573142 THE SPRING OYSTER</ion-label>
         <ion-note slot="end">$27.24</ion-note>
       </ion-item>
-    </ion-card-content> 
-    <ion-card-content>
-      <ion-card-subtitle>DEBIT</ion-card-subtitle>
-      <ion-item class="transItem">
-        <ion-label>766573142 THE SPRING OYSTER</ion-label>
-        <ion-note slot="end">$27.24</ion-note>
-      </ion-item>
-    </ion-card-content>     
+    </ion-card-content>    
   </ion-card>
 
 </ion-content>
