@@ -41,6 +41,7 @@ def trans(accountId):
     Transport_amount = 0
     FNB_amount = 0
     Transfer_amount = 0
+    ATM_amount = 0
     for i in range(len(contents)):
         if contents[i]['tag'] == 'TRANSPORT':
             Transport_amount = Transport_amount + float(contents[i]['amount'])
@@ -48,12 +49,15 @@ def trans(accountId):
             FNB_amount = FNB_amount + float(contents[i]['amount'])
         if contents[i]['tag'] == 'TRANSFER':
             Transfer_amount = Transfer_amount + float(contents[i]['amount'])
+        if contents[i]['tag'] == 'ATM':
+            ATM_amount = Transfer_amount + float(contents[i]['amount'])
+
 
     print(Transport_amount)
     print(FNB_amount)
     print(Transfer_amount)
 
-    test2 = {'TRANSPORT':Transport_amount, 'FNB': FNB_amount, 'TRANSFER': Transfer_amount }
+    test2 = {'TRANSPORT':Transport_amount, 'FNB': FNB_amount, 'TRANSFER': Transfer_amount, 'ATM': ATM_amount }
     print(test2)
 
     return test2
